@@ -7,6 +7,10 @@ html, body {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+main {
+    background: #424242;
+}
+
 /*---------- Cabeçalho ----------*/
 .header-bar {
     height: 64px;
@@ -47,6 +51,7 @@ html, body {
 
 /*---------- Conteúdo ----------*/
 .conteudo {
+    background: #F5F5F5;
     padding: 24px;
     height: 512px;
 }
@@ -67,7 +72,7 @@ html, body {
 
 /*---------- Links ----------*/
 .default-link {
-    color: #607D8B;
+    color: #009688;
     transition: color 0.1s;
 }
 .default-link:hover {
@@ -88,7 +93,7 @@ html, body {
     border-bottom: 1px solid #9E9E9E;
 }
 .input-valido label {
-    color: #607D8B;
+    color: #009688;
 }
 .input-valido input:focus {
     border-bottom: 1px solid #00E5FF !important;
