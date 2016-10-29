@@ -7,56 +7,67 @@
 
 		var dps = [[], [], [], [], [], []]; // dataPoints
 		var num = [[0], [0], [0], [0], [0], [0]];
+		var mag = [];
 
 		var chart = new CanvasJS.Chart("chartContainer",{
 			title :{
-				text: "Lei dos grandes números: Dado de 6 faces"
+				text: "Lei dos grandes numeros: Dado de 6 faces"
 			},
 			data: [{
 				type: "line",
 				dataPoints: dps[0],
 			},
-			data: [{
+			{
 				type: "line",
 				dataPoints: dps[1],
 			},
-			data: [{
+			{
 				type: "line",
 				dataPoints: dps[2],
 			},
-			data: [{
+			{
 				type: "line",
 				dataPoints: dps[3],
 			},
-			data: [{
+			{
 				type: "line",
 				dataPoints: dps[4],
 			},
-			data: [{
+			{
 				type: "line",
 				dataPoints: dps[5],
 			},
-
+			{
+				type: "line",
+				color: "black",
+				dataPoints: mag,
+			}
 
 		]
 		});
 
+		var tot = 0;
 		var xVal = 0;
-		var updateInterval = 100;
+		var updateInterval = 10; // graph velocity.
+		var dataLength = 200;
 
 		var updateChart = function (count) {
 			count = count || 1;
 			// count is number of times loop runs to generate random dataPoints.
-
 			for (var j = 0; j < count; j++) {
 				var roll = Math.floor(Math.random()*6)
+				tot++;
 				num[roll]++
 				for(var i = 0; i < 6; i++) {
 					dps[i].push({
 						x: xVal,
-						y: num[i]
+						y: num[i]/tot
 					})
 				}
+				mag.push({
+					x: xVal,
+					y: 1.0/6,
+				})
 				xVal++;
 			};
 			chart.render();
@@ -73,6 +84,13 @@
 	<script type="text/javascript" src="/assets/script/canvasjs.min.js"></script>
 </head>
 <div id="chartContainer" style="height: 300px; width:100%;">
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script src="_scripts/materialize.js"></script>
+<script src="_scripts/scripts.js"></script>
+<script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
 <body>
   </html></body>
 	</div>
