@@ -28,6 +28,12 @@ main {
     display: inline-block;
     margin-top: 7px;
 }
+@media (max-width: 992px) {
+    .title-container {
+        position: absolute;
+        left: calc(50% - 136px);
+    }
+}
 .title-text {
     color: #FFFFFF;
     font-size: 18px;
@@ -36,12 +42,6 @@ main {
 .title-text-mini {
     color: #FFFFFF;
     font-weight: normal;
-}
-@media (max-width: 992px) {
-    .title-container {
-        position: absolute;
-        left: calc(50% - 136px);
-    }
 }
 .logo-image {
     height: 48px;
@@ -77,6 +77,9 @@ main {
 }
 .container-input {
     white-space: nowrap;
+}
+.container-input label {
+    margin-left: -32px;
 }
 .slider-input {
     width: 90%;
@@ -162,68 +165,6 @@ main {
 }
 .footer-link:hover {
     color: #FFFFFF !important;
-}
-
-/*---------- Input ----------*/
-/* Valid */
-.input-valido input{
-    border-bottom: 1px solid #9E9E9E;
-}
-.input-valido label {
-    color: #009688;
-}
-.input-valido input:focus {
-    border-bottom: 1px solid #00E5FF !important;
-    box-shadow: 0 1px 0 0 #00E5FF !important;
-}
-.input-valido input:focus + label {
-    color: #00E5FF !important;
-}
-/* Invalid */
-.input-invalido input {
-    border-bottom: 1px solid #F44336;
-    box-shadow: 0 1px 0 0 #F44336;
-}
-.input-invalido label {
-    color: #F44336;
-}
-.input-invalido input:focus {
-    border-bottom: 1px solid #F44336 !important;
-    box-shadow: 0 1px 0 0 #F44336 !important;
-}
-.input-invalido input:focus + label {
-    color: #F44336 !important;
-}
-/* Span Error */
-.span-error {
-    color: #F44336;
-    position: absolute;
-    margin-top: -12px;
-}
-/* Browser Hacks */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active,
-input:-moz-autofill,
-input:-moz-autofill:hover,
-input:-moz-autofill:focus,
-input:-moz-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-}
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #FAFAFA inset;
-    -webkit-text-fill-color: #616161 !important;
-}
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #FAFAFA inset !important;
-}
-input:-moz-autofill {
-    -moz-box-shadow: 0 0 0px 1000px #FAFAFA inset;
-    -moz-text-fill-color: #616161 !important;
-}
-input:-moz-autofill:focus {
-    -moz-box-shadow: 0 0 0px 1000px #FAFAFA inset;
 }
 
 /*---------- Others ----------*/
