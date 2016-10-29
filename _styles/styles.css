@@ -6,12 +6,11 @@ html, body {
     padding: 0;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
 main {
     background: #424242;
 }
 
-/*---------- Cabeçalho ----------*/
+/*---------- Header ----------*/
 .header-bar {
     height: 64px;
 }
@@ -24,7 +23,7 @@ main {
     }
 }
 
-/*---------- Título ----------*/
+/*---------- Title ----------*/
 .title-container div {
     display: inline-block;
     margin-top: 7px;
@@ -38,7 +37,7 @@ main {
     color: #FFFFFF;
     font-weight: normal;
 }
-@media (max-width: 980px) {
+@media (max-width: 992px) {
     .title-container {
         position: absolute;
         left: calc(50% - 136px);
@@ -49,14 +48,91 @@ main {
     margin: -30px 9px 0 0;
 }
 
-/*---------- Conteúdo ----------*/
+/*---------- Content ----------*/
 .conteudo {
-    background: #F5F5F5;
-    padding: 24px;
-    height: 512px;
+    background: #FAFAFA;
+    padding: 16px 16px 12px 16px;
+}
+@media (max-width: 992px) {
+    .conteudo {
+        padding: 32px 21px 12px 21px;
+    }
 }
 
-/*---------- Ícones ----------*/
+/*---------- Control Panel ----------*/
+#control-panel {
+    background: #EEEEEE;
+    margin: 16px 15px 0 5px;
+    padding: 28px 32px 32px 32px;
+    width: 100%;
+    border-radius: 2px;
+}
+#control-panel span {
+    font-size: 16px;
+}
+@media (max-width: 992px) {
+    #control-panel {
+        margin: 0;
+    }
+}
+.container-input {
+    white-space: nowrap;
+}
+.slider-input {
+    width: 90%;
+    margin: 0 2px 0 -26px;
+    display: inline-block;
+}
+.number-input {
+    width: 10% !important;
+    min-width: 50px;
+    display: inline-block;
+}
+#btnVisualizar {
+    background: #009688;
+    color: #FFFFFF;
+    width: 100%;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/*---------- Text ----------*/
+#text {
+    margin: 26px 0 0 5px;
+}
+@media (max-width: 992px) {
+    #text {
+        margin: 26px 0 0 0;
+    }
+}
+
+/*---------- Graph ----------*/
+#graph {
+    background: #FFFFFF;
+    height: 355px;
+    margin: 16px 5px 0 15px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+@media (max-width: 992px) {
+    #graph {
+        margin: 24px 0 0 0;
+    }
+}
+
+/*---------- Statistics ----------*/
+#statistics {
+    background: #FFFFFF;
+    height: 264px;
+    margin: 32px 5px 0 15px;
+}
+@media (max-width: 992px) {
+    #statistics {
+        margin: 32px 0 0 0;
+    }
+}
+
+/*---------- Icons ----------*/
 /* Social Icon */
 .social-icon {
     height: 48px;
@@ -72,7 +148,8 @@ main {
 
 /*---------- Links ----------*/
 .default-link {
-    color: #009688;
+    word-break: break-all;
+    color: #00BCD4;
     transition: color 0.1s;
 }
 .default-link:hover {
@@ -88,7 +165,7 @@ main {
 }
 
 /*---------- Input ----------*/
-/* Válido */
+/* Valid */
 .input-valido input{
     border-bottom: 1px solid #9E9E9E;
 }
@@ -102,7 +179,7 @@ main {
 .input-valido input:focus + label {
     color: #00E5FF !important;
 }
-/* Inválido */
+/* Invalid */
 .input-invalido input {
     border-bottom: 1px solid #F44336;
     box-shadow: 0 1px 0 0 #F44336;
@@ -149,7 +226,7 @@ input:-moz-autofill:focus {
     -moz-box-shadow: 0 0 0px 1000px #FAFAFA inset;
 }
 
-/*---------- Outros ----------*/
+/*---------- Others ----------*/
 .primary-color {
     color: #009688;
 }
