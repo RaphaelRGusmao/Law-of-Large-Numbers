@@ -23,8 +23,13 @@ function recalc() {
 function prepData(range,amount) {
 	var arr = new Array(amount);
 	for (var i=0; i<amount; i++) {
-		arr[i] = (Math.random()-0.5) * range;
-	}
+		arr[i] = (Math.random()) * range;
+        var aux = 0;
+        while (aux < arr[i]) {
+             aux++;
+        }
+        arr[i] = aux;
+    }
 
 	return arr;
 }
@@ -41,7 +46,7 @@ myp.enumerateP=0;
 myp.enumerateH=0;
 myp.enumerateV=1;
 
-var data = prepData(10,ilosc);
+var data = prepData(6,ilosc);
 
 var t = setInterval('recalc()',20);
 
