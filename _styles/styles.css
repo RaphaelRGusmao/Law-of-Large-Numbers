@@ -114,6 +114,8 @@ main {
     background: #FFFFFF;
     height: 355px;
     margin: 16px 5px 0 15px;
+    padding: 20px 23px 17px 28px;
+    position: relative;
     border-radius: 2px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
@@ -122,6 +124,31 @@ main {
         margin: 24px 0 0 0;
     }
 }
+#graph span {
+    color: #BDBDBD;
+    font-size: 12px;
+    position: absolute;
+    top: 11px;
+    z-index: 10;
+}
+#over-left, #over-right {
+    background: #FFFFFF;
+    height: 10px;
+    width: 100px;
+    position: absolute;
+    bottom: 18px;
+}
+#over-left {
+    left: 20px;
+}
+#over-right {
+    right: 20px;
+}
+#chartContainer {
+    height: 100%;
+    width:100%;
+}
+
 
 /*---------- Statistics ----------*/
 #statistics {

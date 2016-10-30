@@ -1,22 +1,19 @@
 /* author: Raphael R. Gusmão */
 
-// Dados do Control Panel
-var faces = $("#numFaces")[0];
-var lancamentos = $("#numLancamentos")[0];
-var velocidade = $("#numVelocidade")[0];
-
 // Botao Visualizar
 function visualizar ()
 {
-    console.log(faces.value);
-    console.log(lancamentos.value);
-    console.log(velocidade.value);
+    var faces = $("#numFaces")[0];
+    var lancamentos = $("#numLancamentos")[0];
+    var velocidade = $("#numVelocidade")[0];
+
+    geraGraficoLinha(faces.value, lancamentos.value, velocidade.value);
 }
 
 // Numero de faces
 $("#sldFaces").bind("input", function ()
 {
-    faces.value = this.value;
+    $("#numFaces")[0].value = this.value;
 });
 $("#numFaces").bind("input", function ()
 {
@@ -31,7 +28,7 @@ $("#numFaces").bind("input", function ()
 // Numero de lancamentos
 $("#sldLancamentos").bind("input", function ()
 {
-    lancamentos.value = this.value;
+    $("#numLancamentos")[0].value = this.value;
 });
 $("#numLancamentos").bind("input", function ()
 {
@@ -46,7 +43,7 @@ $("#numLancamentos").bind("input", function ()
 // Velocidade da animacao
 $("#sldVelocidade").bind("input", function ()
 {
-    velocidade.value = this.value;
+    $("#numVelocidade")[0].value = this.value;
 });
 $("#numVelocidade").bind("input", function ()
 {    
