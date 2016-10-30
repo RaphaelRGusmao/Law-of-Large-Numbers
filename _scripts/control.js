@@ -7,7 +7,7 @@ function visualizar ()
     var lancamentos = $("#numLancamentos")[0];
     var velocidade = $("#numVelocidade")[0];
 
-    geraGraficoLinha(faces.value, lancamentos.value, velocidade.value);
+    geraGraficos(faces.value, lancamentos.value, velocidade.value);
 }
 
 // Numero de faces

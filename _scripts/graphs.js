@@ -1,7 +1,7 @@
 /* author: Raphael R. Gusmão */
 
 // Lista de cores
-CanvasJS.addColorSet("colors", [
+var colors = [
     "#212121",// Black
     "#F44336",// Red
     "#4CAF50",// Green
@@ -23,11 +23,15 @@ CanvasJS.addColorSet("colors", [
     "#607D8B",// Blue Grey
     "#795548",// Brown
     "#9E9E9E" // Grey
-]);
+];
+var pieColors = colors.slice(); pieColors.shift();
+CanvasJS.addColorSet("colors", colors);
+CanvasJS.addColorSet("pieColors", pieColors);
 
-function geraGraficoLinha (numFaces, numLancamentos, velocidade)
+function geraGraficos (numFaces, numLancamentos, velocidade)
 {
     var freqAbs = [];
+    var pieData = [];
     var curvas = [{
         type: "line",
         markerType: "none",
@@ -40,6 +44,10 @@ function geraGraficoLinha (numFaces, numLancamentos, velocidade)
         curvas.push({
             type: "line",
             dataPoints: []
+        });
+        pieData.push({
+            indexLabel: i.toString(),
+            y: 1
         });
     }
 
@@ -61,7 +69,18 @@ function geraGraficoLinha (numFaces, numLancamentos, velocidade)
         },
         data: curvas
     });
+    
+    var pieChart = new CanvasJS.Chart("pieContainer",
+    {
+        colorSet: "pieColors",
+        data: [{
+            type: "pie",
+            dataPoints: pieData
+        }]
+    });
+    
     chart.render();
+    pieChart.render();
 
     var lancamento = 0;
     var updateChart = function ()
@@ -80,14 +99,16 @@ function geraGraficoLinha (numFaces, numLancamentos, velocidade)
                     x: lancamento,
                     y: freqAbs[i]/lancamento
                 });
+                pieData[i-1].y = freqAbs[i]/lancamento;
             }
-
+            
             chart.options.title.text = "Lançamentos: " + lancamento;
             chart.render();
+            pieChart.render();
         }
 
     };
 
     setInterval(updateChart, 20/velocidade);
 }
-geraGraficoLinha(6, 100, 1);
+geraGraficos(6, 100, 1);

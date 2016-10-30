@@ -131,6 +131,10 @@ main {
     top: 11px;
     z-index: 10;
 }
+#chartContainer {
+    height: 100%;
+    width:100%;
+}
 #over-left, #over-right {
     background: #FFFFFF;
     height: 10px;
@@ -144,22 +148,38 @@ main {
 #over-right {
     right: 20px;
 }
-#chartContainer {
-    height: 100%;
-    width:100%;
-}
 
 
 /*---------- Statistics ----------*/
 #statistics {
     background: #FFFFFF;
-    height: 264px;
+    height: 266px;
     margin: 32px 5px 0 15px;
+    white-space: nowrap;
+    position: relative;
 }
 @media (max-width: 992px) {
     #statistics {
         margin: 32px 0 0 0;
     }
+}
+#freqs {
+    width: 60%;
+    height: 100%;
+    display: inline-block;
+}
+#pieContainer {
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+}
+#pie-over {
+    background: #FFFFFF;
+    height: 10px;
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: -1px;
 }
 
 /*---------- Icons ----------*/
