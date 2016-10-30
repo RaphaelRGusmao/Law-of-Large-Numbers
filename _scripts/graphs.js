@@ -8,7 +8,7 @@ var colors = [
     "#2196F3",// Blue
     "#FFEB3B",// Yellow
     "#9C27B0",// Purple
-    "#00BCD4",// Cyan    
+    "#00BCD4",// Cyan
     "#E91E63",// Pink
     "#8BC34A",// Light Green
     "#3F51B5",// Indigo
@@ -36,7 +36,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
         type: "line",
         markerType: "none",
         lineThickness: 4,
-        dataPoints: []
+          dataPoints: []
     }];
 
     for (var i = 1; i <= numFaces; i++) {
@@ -69,7 +69,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
         },
         data: curvas
     });
-    
+
     var pieChart = new CanvasJS.Chart("pieContainer",
     {
         colorSet: "pieColors",
@@ -78,7 +78,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
             dataPoints: pieData
         }]
     });
-    
+
     chart.render();
     pieChart.render();
 
@@ -86,7 +86,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
     var updateChart = function ()
     {
         if (lancamento++ < numLancamentos) {
-            var face = Math.ceil(numFaces * Math.random());
+            var face = Math.floor(numFaces * Math.random()) + 1;
             freqAbs[face]++;
 
             curvas[0].dataPoints.push({
@@ -101,7 +101,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
                 });
                 pieData[i-1].y = freqAbs[i]/lancamento;
             }
-            
+
             chart.options.title.text = "Lançamentos: " + lancamento;
             chart.render();
             pieChart.render();
