@@ -14,3 +14,8 @@ Obs:
 escohido gerar números aleatórios uniformemente distribuídos para ficar o mais
 próximo do real possível. É um gerador de um número Pseudoaleatório que se
 parece muito com o que teriámos se gerassemos um dado na realidade.
+
+Alunos responsáveis:
+       Breno Helfstein Moura
+       Enzo Hideki Nakamura
+       Raphael Gusmão dos Reis
