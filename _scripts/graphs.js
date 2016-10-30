@@ -30,6 +30,7 @@ CanvasJS.addColorSet("pieColors", pieColors);
 
 function geraGraficos (numFaces, numLancamentos, velocidade)
 {
+    var divFreqs = [];
     var freqAbs = [];
     var pieData = [];
     var curvas = [{
@@ -38,7 +39,11 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
         lineThickness: 4,
         dataPoints: []
     }];
-
+    
+    var freqsContainer = $("#freqsContainer")[0];
+    while (freqsContainer.firstChild) {
+        freqsContainer.removeChild(freqsContainer.firstChild);
+    }
     for (var i = 1; i <= numFaces; i++) {
         freqAbs[i] = 0;
         curvas.push({
@@ -49,7 +54,21 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
             indexLabel: i.toString(),
             y: 1
         });
+        var container = document.createElement("div");
+        var circle = document.createElement("div");
+        var text = document.createElement("span");
+        freqsContainer.appendChild(container);
+        container.appendChild(circle);
+        container.appendChild(text);
+        container.className = 'freq';
+        circle.className = 'circle';
+        circle.style.backgroundColor = colors[i];
+        circle.textContent = i;
+        text.className = 'freq-text';
+        text.textContent = "0.00";
+        divFreqs[i] = container;
     }
+    $("#probReal")[0].textContent = (1/numFaces).toFixed(4);
 
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -72,6 +91,7 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
     
     var pieChart = new CanvasJS.Chart("pieContainer",
     {
+        backgroundColor: "#FAFAFA",
         colorSet: "pieColors",
         data: [{
             type: "pie",
@@ -99,7 +119,8 @@ function geraGraficos (numFaces, numLancamentos, velocidade)
                     x: lancamento,
                     y: freqAbs[i]/lancamento
                 });
-                pieData[i-1].y = freqAbs[i]/lancamento;
+                pieData[i-1].y = (freqAbs[i]/lancamento).toFixed(4);
+                divFreqs[i].childNodes[1].textContent = (freqAbs[i]/lancamento).toFixed(4);
             }
             
             chart.options.title.text = "Lançamentos: " + lancamento;
